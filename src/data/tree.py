@@ -2,7 +2,7 @@ from typing import List
 
 from nltk import Tree
 # from torchtext.vocab import Vocab
-from vocabulary import Vocabulary
+from .vocabulary import Vocabulary
 
 
 def convert_leaves_to_idx(tree: Tree):
