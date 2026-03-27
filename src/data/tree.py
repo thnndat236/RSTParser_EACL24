@@ -1,7 +1,8 @@
 from typing import List
 
 from nltk import Tree
-from torchtext.vocab import Vocab
+# from torchtext.vocab import Vocab
+from vocabulary import Vocabulary
 
 
 def convert_leaves_to_idx(tree: Tree):
@@ -91,7 +92,7 @@ class RSTTree(Tree):
         return True
 
     @classmethod
-    def check_relation(cls, tree: Tree, relation_vocab: Vocab):
+    def check_relation(cls, tree: Tree, relation_vocab: Vocabulary):
         for tp in tree.treepositions():
             node = tree[tp]
             if not isinstance(node, RSTTree):
