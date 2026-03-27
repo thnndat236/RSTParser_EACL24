@@ -1,8 +1,8 @@
 from collections import Counter
 from typing import Literal
 
-from torchtext.vocab import vocab
-
+# from torchtext.vocab import vocab
+from vocabulary import Vocabulary
 from .tree import RSTTree
 
 RSTDT_RELATION_LABELS = [
@@ -79,11 +79,16 @@ def get_relation_labels(corpus: Literal["rstdt", "instrdt", "gum"]):
         raise ValueError
 
 
+# def get_relation_vocab(corpus: Literal["rstdt", "instrdt", "gum"]):
+#     return vocab(
+#         Counter(get_relation_labels(corpus)),
+#         specials=["<pad>"],
+#     )
+
 def get_relation_vocab(corpus: Literal["rstdt", "instrdt", "gum"]):
-    return vocab(
-        Counter(get_relation_labels(corpus)),
-        specials=["<pad>"],
-    )
+    labels = get_relation_labels(corpus)
+    counts = Counter(labels)
+    return Vocabulary(counts, specials=["<pad>"])
 
 
 RSTDT_RELATION_TABLE = {
