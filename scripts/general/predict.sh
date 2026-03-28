@@ -12,7 +12,7 @@ model_size=$2    # 7b
 parse_type=$3    # bottom_up hoặc top_down
 
 # Prefix của tác giả trên Hugging Face
-HF_PREFIX="arumaeawa"
+HF_PREFIX="arumaekawa"
 
 # Tự động mapping sang Model ID trên Hugging Face
 SPAN_ID="${HF_PREFIX}/${corpus}-${model_size}-span"
