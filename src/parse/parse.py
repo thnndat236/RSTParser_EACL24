@@ -22,7 +22,7 @@ def parse_dataset(
     results = {"doc_id": [], "gold_tree": [], "pred_tree": []}
     for doc in tqdm(dataset, dynamic_ncols=True, leave=False):
         # gold tree
-        gold_tree = get_rst_tree(doc, corpus=corpus)
+        # gold_tree = get_rst_tree(doc, corpus=corpus)
 
         # parse tree (pred tree) with models
         pred_tree = parse_doc(
@@ -34,7 +34,7 @@ def parse_dataset(
             corpus=corpus,
         )
         results["doc_id"].append(doc["doc_id"])
-        results["gold_tree"].append(gold_tree)
+        # results["gold_tree"].append(gold_tree)
         results["pred_tree"].append(pred_tree)
 
     return results
